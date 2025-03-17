@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Pos?>
+
+<VBox fx:id="galeriaVBox" alignment="TOP_CENTER" prefHeight="1000.0" prefWidth="1200.0" spacing="5" stylesheets="@styles/Progreso.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gestionhotel.controller.ProgresoDobleIndController">
+    <children>
+        <!-- Barra superior con botón de cerrar y título -->
+        <HBox prefHeight="50" style="-fx-background-color: #3f8e9e; -fx-padding: 10;">
+            <children>
+                <!-- Espaciador flexible que empuja el título hacia el centro -->
+                <Region HBox.hgrow="ALWAYS" />
+
+                <!-- Título centrado -->
+                <Label fx:id="titulo" alignment="CENTER" style="-fx-text-fill: white; -fx-font-size: 18; -fx-font-weight: bold;" text="" />
+
+                <!-- Espaciador flexible que empuja el botón de cerrar hacia la derecha -->
+                <Region HBox.hgrow="ALWAYS" />
+
+                <!-- Botón de cerrar ventana alineado a la derecha -->
+                <Button fx:id="botonCerrar" onAction="#cerrarVentana" style="-fx-background-color: transparent; -fx-text-fill: #ff2828; -fx-font-size: 18;" text="X" />
+            </children>
+        </HBox>
+
+        <!-- Imagen más grande y centrada dentro del VBox con bordes redondeados -->
+        <ImageView fx:id="imagenView" fitHeight="500" fitWidth="500" preserveRatio="true" style="-fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.5), 10, 0, 0, 0);" VBox.vgrow="ALWAYS">
+            <VBox.margin>
+                <Insets top="40.0" />
+            </VBox.margin>
+        </ImageView>
+
+        <!-- Contenedor para la imagen y el fondo -->
+        <StackPane fx:id="fondoGaleria" prefHeight="224.0" prefWidth="255.0" styleClass="fondoGaleria">
+            <children>
+                <!-- Botón de flecha centrado y más cerca de la imagen con bordes redondeados -->
+                <Button fx:id="botonSiguiente" alignment="CENTER" onAction="#cambiarImagen" styleClass="flecha-boton" text="→" />
+            </children>
+        </StackPane>
+
+        <!-- HBox para colocar el ProgressIndicator y el texto del porcentaje -->
+        <HBox alignment="CENTER" spacing="10">
+   <children>
+               <!-- ProgressIndicator -->
+               <ProgressIndicator fx:id="progressIndicator" progress="0.5" style="-fx-pref-width: 50; -fx-pref-height: 50; -fx-alignment: center; -fx-background-color: transparent; -fx-border-color: #3f8e9e; -fx-border-width: 0; -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.5), 8, 0, 0, 5);" />
+   </children>
+
+
+        </HBox>
+    </children>
+</VBox>

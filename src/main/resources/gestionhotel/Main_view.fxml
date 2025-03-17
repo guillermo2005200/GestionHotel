@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.*?>
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane focusTraversable="true" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="gestionhotel.controller.MainController"
+            styleClass="border-pane"
+            stylesheets="@styles/Main.css">
+
+    <!-- Contenedor de la barra superior -->
+    <top>
+        <VBox spacing="5" styleClass="top-vbox" style="-fx-background-color: #2D3E50;">
+            <children>
+                <!-- Menú Dropdown (Opciones) -->
+                <HBox spacing="10" styleClass="menu-hbox">
+                    <children>
+                        <MenuButton  text="Progreso" styleClass="menu-button">
+                            <items>
+                                <MenuItem fx:id="menuItem1" text="Doble" onAction="#abrirProgreso"/>
+                                <MenuItem fx:id="menuItem2" text="Doble Individual" onAction="#abrirProgreso"/>
+                                <MenuItem fx:id="menuItem3" text="Junior Suite" onAction="#abrirProgreso"/>
+                                <MenuItem fx:id="menuItem4" text="Suite" onAction="#abrirProgreso"/>
+                            </items>
+                        </MenuButton>
+
+                        <MenuButton text="Ocupación" styleClass="menu-button">
+                            <items>
+                                <MenuItem fx:id="menuItem5" text="Doble" onAction="#abrirEstadisticas"/>
+                                <MenuItem fx:id="menuItem6" text="Doble Individual"  onAction="#abrirEstadisticas"/>
+                                <MenuItem fx:id="menuItem7" text="Junior Suite"  onAction="#abrirEstadisticas"/>
+                                <MenuItem fx:id="menuItem8" text="Suite"  onAction="#abrirEstadisticas"/>
+                            </items>
+                        </MenuButton>
+                        <MenuButton text="Recursos">
+                            <items>
+                            <MenuItem fx:id="menuItem9" text="PaginaWeb"  onAction="#abrirWeb"/>
+                            </items>
+                        </MenuButton>
+                    </children>
+                </HBox>
+
+                <!-- Barra con botones -->
+                <HBox spacing="10" styleClass="top-hbox">
+                    <children>
+                        <Label text="Listado de Usuarios" textFill="WHITE" HBox.hgrow="ALWAYS" styleClass="top-label">
+                            <HBox.margin>
+                                <Insets left="10.0" top="15.0" />
+                            </HBox.margin>
+                        </Label>
+
+                        <Button fx:id="searchButton1" onAction="#añadirUsuario" text="Añadir" styleClass="button-add">
+                            <HBox.margin>
+                                <Insets top="15.0" />
+                            </HBox.margin>
+                        </Button>
+
+                        <Button fx:id="editButton" text="Editar" styleClass="button-edit">
+                            <HBox.margin>
+                                <Insets top="15.0" />
+                            </HBox.margin>
+                        </Button>
+
+                        <Button fx:id="deleteButton" text="Eliminar" styleClass="button-delete">
+                            <HBox.margin>
+                                <Insets top="15.0" />
+                            </HBox.margin>
+                        </Button>
+
+                        <Button fx:id="reservasButton" text="Reservas" styleClass="button-reservas">
+                            <HBox.margin>
+                                <Insets right="10.0" top="15.0" />
+                            </HBox.margin>
+                        </Button>
+
+                        <Region HBox.hgrow="ALWAYS" />
+
+                        <TextField fx:id="searchField" alignment="TOP_LEFT" promptText="Buscar..." styleClass="search-field">
+                            <HBox.margin>
+                                <Insets top="15.0" />
+                            </HBox.margin>
+                        </TextField>
+                        <Button fx:id="searchButton" onAction="#buscarPorDNI" text="Buscar" styleClass="button-search">
+                            <HBox.margin>
+                                <Insets right="10.0" top="15.0" />
+                            </HBox.margin>
+                        </Button>
+                    </children>
+                </HBox>
+            </children>
+        </VBox>
+    </top>
+
+    <!-- Contenido principal -->
+    <center>
+        <ScrollPane fx:id="scrollPane" fitToWidth="true" styleClass="scroll-pane">
+            <content>
+                <VBox fx:id="userCardContainer" spacing="10" styleClass="user-card-container">
+                    <!-- Aquí se agregarán las tarjetas dinámicamente desde el controlador -->
+                </VBox>
+            </content>
+        </ScrollPane>
+    </center>
+</BorderPane>
